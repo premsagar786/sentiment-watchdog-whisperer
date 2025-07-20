@@ -2,39 +2,75 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Customer Sentiment Watchdog Design System
+Professional dashboard with sentiment-aware colors and modern gradients
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core backgrounds - Clean dashboard theme */
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    /* Card system - Elevated surfaces */
+    --card: 240 10% 7%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    /* Popover system */
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Brand colors - Professional blue */
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary surfaces */
+    --secondary: 240 8% 15%;
+    --secondary-foreground: 0 0% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted elements */
+    --muted: 240 6% 12%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent highlights */
+    --accent: 217 91% 60%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Alert/destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 240 6% 20%;
+    --input: 240 6% 20%;
+    --ring: 217 91% 60%;
+
+    /* Sentiment color system */
+    --sentiment-positive: 142 76% 36%;
+    --sentiment-positive-light: 142 76% 46%;
+    --sentiment-positive-bg: 142 76% 6%;
+    
+    --sentiment-neutral: 38 92% 50%;
+    --sentiment-neutral-light: 38 92% 60%;
+    --sentiment-neutral-bg: 38 92% 8%;
+    
+    --sentiment-negative: 0 84% 60%;
+    --sentiment-negative-light: 0 84% 70%;
+    --sentiment-negative-bg: 0 84% 8%;
+
+    /* Dashboard specific gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(217 91% 70%));
+    --gradient-sentiment-positive: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-sentiment-neutral: linear-gradient(135deg, hsl(38 92% 50%), hsl(38 92% 60%));
+    --gradient-sentiment-negative: linear-gradient(135deg, hsl(0 84% 60%), hsl(0 84% 70%));
+    
+    /* Shadows for depth */
+    --shadow-card: 0 4px 6px -1px hsl(240 10% 3.9% / 0.1), 0 2px 4px -1px hsl(240 10% 3.9% / 0.06);
+    --shadow-elevated: 0 10px 15px -3px hsl(240 10% 3.9% / 0.1), 0 4px 6px -2px hsl(240 10% 3.9% / 0.05);
+    
+    /* Smooth transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 

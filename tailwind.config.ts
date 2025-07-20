@@ -52,6 +52,18 @@ export default {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
+				// Sentiment analysis color system
+				sentiment: {
+					positive: 'hsl(var(--sentiment-positive))',
+					'positive-light': 'hsl(var(--sentiment-positive-light))',
+					'positive-bg': 'hsl(var(--sentiment-positive-bg))',
+					neutral: 'hsl(var(--sentiment-neutral))',
+					'neutral-light': 'hsl(var(--sentiment-neutral-light))',
+					'neutral-bg': 'hsl(var(--sentiment-neutral-bg))',
+					negative: 'hsl(var(--sentiment-negative))',
+					'negative-light': 'hsl(var(--sentiment-negative-light))',
+					'negative-bg': 'hsl(var(--sentiment-negative-bg))',
+				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
 					foreground: 'hsl(var(--sidebar-foreground))',
