@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SentimentCard } from "@/components/SentimentCard";
 import { AlertsPanel } from "@/components/AlertsPanel";
 import { SentimentTrend } from "@/components/SentimentTrend";
@@ -5,9 +7,39 @@ import { RealtimeTickets } from "@/components/RealtimeTickets";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Settings, RefreshCw, AlertTriangle } from "lucide-react";
+import { useAuth } from "@/hooks/useAuth";
+import { Settings, RefreshCw, AlertTriangle, LogOut } from "lucide-react";
 
 const Index = () => {
+  const { user, loading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate('/auth');
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <AlertTriangle className="h-12 w-12 text-primary mx-auto mb-4 animate-pulse" />
+          <p className="text-muted-foreground">Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
+
+  const handleSignOut = async () => {
+    await signOut();
+    navigate('/auth');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -24,6 +56,9 @@ const Index = () => {
               </Badge>
             </div>
             <div className="flex items-center space-x-2">
+              <span className="text-sm text-muted-foreground mr-2">
+                {user.email}
+              </span>
               <Button variant="outline" size="sm">
                 <RefreshCw className="h-4 w-4 mr-2" />
                 Refresh
@@ -31,6 +66,10 @@ const Index = () => {
               <Button variant="outline" size="sm">
                 <Settings className="h-4 w-4 mr-2" />
                 Settings
+              </Button>
+              <Button variant="outline" size="sm" onClick={handleSignOut}>
+                <LogOut className="h-4 w-4 mr-2" />
+                Sign Out
               </Button>
             </div>
           </div>
